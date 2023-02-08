@@ -28,4 +28,9 @@ public class ProductService {
         repository.persist(product);
     }
 
+    @Transactional
+    public void deleteProduct(Long id) {
+        repository.deleteById(id);
+    }
+
 }
