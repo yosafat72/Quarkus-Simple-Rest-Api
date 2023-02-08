@@ -19,6 +19,10 @@ public class ProductService {
         return repository.listAll();
     }
 
+    public ProductEntity getSinglEntity(Long id) {
+        return repository.findById(id);
+    }
+
     @Transactional
     public void addProduct(ProductEntity product) {
         repository.persist(product);
