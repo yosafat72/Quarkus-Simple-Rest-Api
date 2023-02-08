@@ -33,4 +33,14 @@ public class ProductService {
         repository.deleteById(id);
     }
 
+    @Transactional
+    public ProductEntity updateProduct(ProductEntity product) {
+        ProductEntity entity = repository.findById(product.id);
+        entity.name = product.name;
+        entity.price = product.price;
+        entity.brand = product.brand;
+        entity.sector = product.sector;
+        return product;
+    }
+
 }

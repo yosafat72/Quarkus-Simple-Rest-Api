@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -63,6 +64,14 @@ public class ProductController {
     public Response deleteSingleProduct(@PathParam(value = "id") Long id) {
         productService.deleteProduct(id);
         return Response.ok().build();
+    }
+
+    @PUT
+    @Path("/update")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateProduct(ProductEntity entity) {
+        ProductEntity productEntity = productService.updateProduct(entity);
+        return Response.ok(productEntity).build();
     }
 
 }
